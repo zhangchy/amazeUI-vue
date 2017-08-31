@@ -1,0 +1,78 @@
+{
+  "name": "amazeui-vue",
+  "version": "0.0.1",
+  "description": "amazeui elements for vue.js",
+  "keywords": [
+    "component",
+    "amazeui",
+    "vue",
+    "mobile",
+    "eleme"
+  ],
+  "main": "lib/amazeui-vue.common.js",
+  "style": "lib/style.css",
+  "files": [
+    "lib",
+    "src",
+    "packages"
+  ],
+  "scripts": {
+    "_NOTE": "生成入口文件，生成UMD CJS, 组件",
+    "bootstrap": "yarn || npm i",
+    "build:file": "npm run lint && node build/bin/build-entry && node build/bin/icon-init.js",
+    "dev": "npm run bootstrap && npm run build:file && node build/cooking.demo.js -p",
+    "dist": "npm run clean && npm run build:file && cross-env BUILD_ENV=UMD node build/bin/build-webpack.js && cross-env BUILD_ENV=COMMONJS node build/bin/build-webpack.js && cross-env BUILD_ENV=COMPONENT node build/bin/build-webpack.js",
+    "dist:all": "node build/bin/build-all.js",
+    "deploy": "build:file && node build/cooking.demo.js -p && gh-pages -d example/dist --remote amazeui",
+    "pub": "sh build/release.sh",
+    "pub:all": "node build/bin/build-all.js && lerna publish",
+    "clean": "rimraf lib && rimraf packages/*/lib",
+    "lint": "eslint src/**/*.js packages/**/*.{js,vue} build/**/*.js --quiet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhangchy/amazeUI-vue.git"
+  },
+  "homepage": "https://github.com/zhangchy/amazeUI-vue.git#readme",
+  "bugs": {
+    "url": "https://github.com/zhangchy/amazeUI-vue.git/issues"
+  },
+  "author": "elemefe",
+  "license": "MIT",
+  "dependencies": {
+    "array-find-index": "^1.0.2",
+    "raf.js": "0.0.4",
+    "vue-lazyload": "^1.0.1"
+  },
+  "peerDependencies": {
+    "vue": "^2.3.0"
+  },
+  "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-object-assign": "^6.22.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "cross-env": "^5.0.5",
+    "css-loader": "^0.28.5",
+    "eslint": "^4.5.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "json-templater": "^1.1.0",
+    "ora": "^1.3.0",
+    "postcss-loader": "^2.0.6",
+    "rimraf": "^2.6.1",
+    "uppercamelcase": "^3.0.0",
+    "vue-template-compiler": "^2.0.0",
+    "webpack": "^3.5.5"
+  }
+}
