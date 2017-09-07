@@ -1,5 +1,7 @@
 var path = require('path')
 var config = require('./config')
+var px2rem = require('postcss-px2rem');
+var webpack = require('webpack');
 module.exports = {
   output: {
     path: path.resolve(process.cwd(), 'dist'), // process.cwd()当前脚本的工作目录
@@ -13,7 +15,17 @@ module.exports = {
       'vue': 'Vue'
     }
   },
-  plugins: [],
+  plugins: [
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        postcss: function() {
+          return [px2rem({remUnit: 75})];
+        }
+      }
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+  ],
+
   module: {
     rules: [
       {

@@ -1,0 +1,43 @@
+var path = require('path');
+var webpack = require('webpack');
+var webpackConfig = require('./webpack.base.conf.js');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var cooking = require('./cooking.js');
+var config = require( './config.js');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+webpackConfig.plugins.push(
+  new ExtractTextPlugin("[name]/styles.css"),
+  new HtmlWebpackPlugin({
+    template: './examples/index.html',
+    filename: 'index.html',
+    inject: true
+  })
+);
+webpackConfig.resolve.alias = config.alias;
+cooking.config = webpackConfig;
+cooking.set({
+  devtool: 'eval-source-map',
+  output: {
+    path: path.resolve(__dirname, "../dist"),
+    filename: 'bundle.js'
+  },
+/*  devServer:{
+    port: 8000,
+    publicPath: 'http://localhost:8080/dist/',
+    contentBase: path.join(__dirname, "../dist"),
+    historyApiFallback:true,
+    hot:true,
+    inline:true
+  },*/
+  entry: [
+    'webpack-dev-server/client?http://0.0.0.0:8000',
+    /*'webpack/hot/only-dev-server',*/
+    path.join(__dirname, '../examples/entry.js')
+  ],
+  externals: config.pkg
+});
+console.log(config.pkg)
+webpackConfig.resolve.alias = config.alias
+cooking.add('loader.js.exclude', config.jsexclude);
+module.exports = cooking.config;

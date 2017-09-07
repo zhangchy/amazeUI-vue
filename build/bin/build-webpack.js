@@ -2,6 +2,7 @@
  * 描述: webpack内容构建
  * 作者: 张春燕 2017/8/30 16:58.
  */
+const WebpackDevServer = require('webpack-dev-server');
 var ora = require('ora');
 var chalk = require('chalk');
 var webpack = require('webpack');
@@ -11,13 +12,25 @@ switch (process.env.BUILD_ENV) {
     webpackConfig = require('../webpack.common.js');
     break;
   case 'UMD':
-    webpackConfig = require('../webpack.conf.js');
+    webpackConfig = require('../webpack.umd.js');
     break;
   case 'COMPONENT':
     webpackConfig = require('../webpack.component.js');
     break;
+  case 'DEMO':
+    webpackConfig = require('../webpack.demo.js');
+    var compiler = webpack(webpackConfig);
+    const server = new WebpackDevServer(compiler, { // 使用 webpack-dev-middleware
+      stats: {
+        colors: true
+      }
+    });
+    server.listen(8000, '127.0.0.1', () => {
+      console.log('Starting server on http://localhost:8000');
+    });
+    break;
 }
-var spinner = ora('building for production...');
+var spinner = ora('building for ' + process.env.BUILD_ENV + '...');
 spinner.start();
 webpack(webpackConfig, function (err, stats) {
   spinner.stop();

@@ -23,7 +23,7 @@ module.exports = {
     'examples': path.resolve(__dirname, '../examples'),
     'amazeui': path.resolve(__dirname, '../')
   },
-  externals: Object.assign({ vue: 'vue' }, externals),
-  pkg: Object.assign({vue: 'vue'}, pkg),
+  externals: Object.assign({ vue: 'Vue' }, externals),
+  pkg: Object.assign({vue: 'Vue'}, pkg),
   jsexclude: /node_modules|lib/
 }
