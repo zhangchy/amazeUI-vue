@@ -22,12 +22,12 @@ cooking.set({
     path: path.resolve(__dirname, "../dist"),
     filename: 'bundle.js'
   },
-  devServer:{
+  /* devServer:{
     port: 8000,
     historyApiFallback:true,
     hot:true,
     inline:true
-  },
+  }, */
   entry: [
     'webpack-dev-server/client?http://0.0.0.0:8000',
     /*'webpack/hot/only-dev-server',*/
