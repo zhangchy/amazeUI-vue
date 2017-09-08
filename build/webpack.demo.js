@@ -17,27 +17,25 @@ webpackConfig.plugins.push(
 webpackConfig.resolve.alias = config.alias;
 cooking.config = webpackConfig;
 cooking.set({
-  devtool: 'eval-source-map',
+  devtool: '#cheap-module-eval-source-map',
   output: {
     path: path.resolve(__dirname, "../dist"),
     filename: 'bundle.js'
   },
-/*  devServer:{
+  devServer:{
     port: 8000,
-    publicPath: 'http://localhost:8080/dist/',
-    contentBase: path.join(__dirname, "../dist"),
     historyApiFallback:true,
     hot:true,
     inline:true
-  },*/
+  },
   entry: [
     'webpack-dev-server/client?http://0.0.0.0:8000',
     /*'webpack/hot/only-dev-server',*/
     path.join(__dirname, '../examples/entry.js')
-  ],
-  externals: config.pkg
+  ]/*,
+  externals: config.pkg*/
 });
-console.log(config.pkg)
 webpackConfig.resolve.alias = config.alias
+
 cooking.add('loader.js.exclude', config.jsexclude);
 module.exports = cooking.config;

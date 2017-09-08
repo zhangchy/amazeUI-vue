@@ -18,10 +18,12 @@ Object.keys(dependencies).forEach(function(key) {
 
 module.exports = {
   alias: {
+    'vue$': 'vue/dist/vue.js',
     'main': path.resolve(__dirname, '../src'),
     'packages': path.resolve(__dirname, '../packages'),
-    'examples': path.resolve(__dirname, '../examples'),
-    'amazeui': path.resolve(__dirname, '../')
+    '@examples': path.resolve(__dirname, '../examples'),
+    'amazeui': path.resolve(__dirname, '../'),
+    '@pages': path.resolve(__dirname, '../examples/pages'),
   },
   externals: Object.assign({ vue: 'Vue' }, externals),
   pkg: Object.assign({vue: 'Vue'}, pkg),
