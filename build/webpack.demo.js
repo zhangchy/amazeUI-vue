@@ -12,14 +12,18 @@ webpackConfig.plugins.push(
     template: './examples/index.html',
     filename: 'index.html',
     inject: true
-  })
+  }),
+  new webpack.DefinePlugin({
+    'process.env.NODE_ENV': '"development"'
+  }),
+  new webpack.HotModuleReplacementPlugin()
 );
 webpackConfig.resolve.alias = config.alias;
 cooking.config = webpackConfig;
 cooking.set({
   devtool: '#cheap-module-eval-source-map',
   output: {
-    path: path.resolve(__dirname, "../dist"),
+    path: path.resolve(__dirname, "../examples/dist"),
     filename: 'bundle.js'
   },
   /* devServer:{
@@ -30,7 +34,7 @@ cooking.set({
   }, */
   entry: [
     'webpack-dev-server/client?http://0.0.0.0:8000',
-    /*'webpack/hot/only-dev-server',*/
+    'webpack/hot/only-dev-server',
     path.join(__dirname, '../examples/entry.js')
   ]/*,
   externals: config.pkg*/

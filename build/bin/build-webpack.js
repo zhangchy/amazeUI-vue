@@ -16,19 +16,10 @@ switch (process.env.BUILD_ENV) {
     break;
   case 'COMPONENT':
     webpackConfig = require('../webpack.component.js');
-    break; /*
+    break;
   case 'DEMO':
     webpackConfig = require('../webpack.demo.js');
-    var compiler = webpack(webpackConfig);
-    const server = new WebpackDevServer(compiler, { // 使用 webpack-dev-middleware
-      stats: {
-        colors: true
-      }
-    });
-    server.listen(8000, '127.0.0.1', () => {
-      console.log('Starting server on http://localhost:8000');
-    });
-    break; */
+    break;
 }
 var spinner = ora('building for ' + process.env.BUILD_ENV + '...');
 spinner.start();
