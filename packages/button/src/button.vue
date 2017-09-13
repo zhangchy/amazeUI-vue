@@ -1,27 +1,44 @@
 <template>
-  <div>
-    <a>
-      test
-    </a>
-  </div>
+  <button
+          class="ma-btn"
+          :class="['ma-btn-' + maType, 'mint-button--' + maSize]">
+    Default
+  </button>
 </template>
 <script>
   export default {
     name: 'ma-button',
-    data () {
-      return {
-        msg: 'hello vue'
-      };
-    },
     props: {
-      hollow: Boolean,
-      disabled: Boolean,
-      block: Boolean,
-      active: Boolean,
-      amStyle: String,
       href: String,
       target: String,
-      amSize: String
+      maType: {
+        type: String,
+        default: 'default',
+        validator (value) {
+          return [
+            'default',
+            'primary',
+            'warning',
+            'alert',
+            'dark',
+            'secondary',
+            'success'
+          ].indexOf(value) > -1;
+        }
+      },
+      maSize: {
+        type: String,
+        default: 'normal',
+        validator (value) {
+          return [
+            'normal',
+            'xs',
+            'sm',
+            'lg',
+            'xl'
+          ].indexOf(value) > -1;
+        }
+      }
     }
   };
 </script>

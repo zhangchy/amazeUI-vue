@@ -6,6 +6,11 @@
         "path": "/button",
         "name": "Button",
         "icon": ""
+      },
+      {
+        "path": "/list",
+        "name": "List",
+        "icon": ""
       }
     ]
   }

@@ -6,6 +6,7 @@ import Vue from 'vue';
 import App from './app.vue';
 import router from './router.js';
 import { install as AV } from '../src/index.js';
+import './style.scss';
 document.addEventListener('DOMContentLoaded', function () {
   if (window.FastClick) window.FastClick.attach(document.body);
 }, false);

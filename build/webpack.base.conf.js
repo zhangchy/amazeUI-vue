@@ -44,7 +44,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: /node_modules/
+        exclude: [/node_modules/, path.resolve(__dirname, '../examples/static/self-adaption.js')]
       },
       {
         test: /\.css/,
@@ -55,6 +55,11 @@ module.exports = {
         test: /\.less/,
         exclude: /^node_modules$/,
         loader: 'style-loader!css-loader!postcss-loader?{ browsers: [\'last 100 versions\'] }!less-loader'
+      },
+      {
+        test: /\.scss/,
+        exclude: /^node_modules$/,
+        loader: 'style-loader!css-loader!postcss-loader?{ browsers: [\'last 100 versions\'] }!sass-loader'
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

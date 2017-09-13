@@ -18,10 +18,11 @@ Object.keys(dependencies).forEach(function(key) {
 
 module.exports = {
   alias: {
-    'vue$': 'vue/dist/vue.js',
+    'vue$': 'vue/dist/vue.min.js',
     'main': path.resolve(__dirname, '../src'),
     'packages': path.resolve(__dirname, '../packages'),
     '@examples': path.resolve(__dirname, '../examples'),
+    '@src': path.resolve(__dirname, '../src'),
     'amazeui': path.resolve(__dirname, '../'),
     '@pages': path.resolve(__dirname, '../examples/pages'),
   },

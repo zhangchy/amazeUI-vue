@@ -5,6 +5,7 @@
 import NavConfig from './nav.config.json';
 import Vue from 'vue';
 import Router from 'vue-router';
+import Demo from './demo.vue';
 Vue.use(Router);
 const registerRoute = (config) => {
   let routes = [];
@@ -29,11 +30,11 @@ const route = registerRoute(NavConfig);
 
 route.routes.push({
   path: '/',
-  component: require('./demo.vue')
+  component: Demo
 });
 
 export const navs = route.navs;
-
+console.log(route.routes);
 export default new Router({
   routes: route.routes
 });

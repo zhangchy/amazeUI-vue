@@ -39,7 +39,9 @@ cooking.set({
   ]/*,
   externals: config.pkg*/
 });
-webpackConfig.resolve.alias = config.alias
+webpackConfig.resolve.alias = config.alias;
 
 cooking.add('loader.js.exclude', config.jsexclude);
+
+console.log(cooking.config)
 module.exports = cooking.config;
