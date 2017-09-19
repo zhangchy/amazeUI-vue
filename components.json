@@ -1,5 +1,8 @@
 {
   "button": "./packages/button/index.js",
+  "buttonGroup": "./packages/buttonGroup/index.js",
   "list": "./packages/list/index.js",
-  "view": "./packages/view/index.js"
+  "view": "./packages/view/index.js",
+  "group": "./packages/group/index.js",
+  "navBar": "./packages/navBar/index.js"
 }

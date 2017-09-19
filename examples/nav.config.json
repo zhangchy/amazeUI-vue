@@ -11,6 +11,16 @@
         "path": "/list",
         "name": "List",
         "icon": ""
+      },
+      {
+        "path": "/group",
+        "name": "Group",
+        "icon": ""
+      },
+      {
+        "path": "/navBar",
+        "name": "NavBar",
+        "icon": ""
       }
     ]
   }

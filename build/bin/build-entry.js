@@ -10,6 +10,8 @@ var ISNTALL_COMPONENT_TEMPLATE = '  Vue.component({{name}}.name, {{name}});';
 var MAIN_TEMPLATE = `{{include}}
 import './assets/base.scss';
 // import merge from './utils/merge';
+import ClassNameMixin from './mixins/ClassNameMixin.js';
+global.ClassNameMixin = ClassNameMixin;
 
 const version = '{{version}}';
 const install = function (Vue, config = {}) {

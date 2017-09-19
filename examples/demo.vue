@@ -8,7 +8,6 @@
                  :href="'/#' + item.path"
                  media={img}
                  :key="item.path">
-
       </List.Item>
     </List>
   </section>

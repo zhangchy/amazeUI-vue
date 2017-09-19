@@ -179,9 +179,6 @@
   pointer-events: none;
   z-index: $z-index-view-bottom;
 }
-.#{$view-prefix}-transition-rfr-enter{
-  color: red;
-}
 .#{$view-prefix}-transition-rfr-leave,
 .#{$view-prefix}-transition-rfl-leave {
   pointer-events: none;

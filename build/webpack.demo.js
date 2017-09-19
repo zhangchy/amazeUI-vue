@@ -7,7 +7,6 @@ var config = require( './config.js');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 webpackConfig.plugins.push(
-  new ExtractTextPlugin("[name]/styles.css"),
   new HtmlWebpackPlugin({
     template: './examples/index.html',
     filename: 'index.html',
@@ -16,7 +15,20 @@ webpackConfig.plugins.push(
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': '"development"'
   }),
-  new webpack.HotModuleReplacementPlugin()
+  new webpack.HotModuleReplacementPlugin(),
+  new webpack.optimize.CommonsChunkPlugin('common.js'),
+  new webpack.LoaderOptionsPlugin({
+    options: {
+      vue: {
+        loaders: {
+          css: ExtractTextPlugin.extract("css-loader"),
+          less: ExtractTextPlugin.extract("css-loader!less-loader"),
+          scss: ExtractTextPlugin.extract("css-loader!sass-loader")
+        }
+      }
+    }
+  }),
+  new ExtractTextPlugin("[name].styles.css")
 );
 webpackConfig.resolve.alias = config.alias;
 cooking.config = webpackConfig;
@@ -24,7 +36,7 @@ cooking.set({
   devtool: '#cheap-module-eval-source-map',
   output: {
     path: path.resolve(__dirname, "../examples/dist"),
-    filename: 'bundle.js'
+    filename: '[name].bundle.js'
   },
   /* devServer:{
     port: 8000,
@@ -33,8 +45,6 @@ cooking.set({
     inline:true
   }, */
   entry: [
-    'webpack-dev-server/client?http://0.0.0.0:8000',
-    'webpack/hot/only-dev-server',
     path.join(__dirname, '../examples/entry.js')
   ]/*,
   externals: config.pkg*/
@@ -43,5 +53,4 @@ webpackConfig.resolve.alias = config.alias;
 
 cooking.add('loader.js.exclude', config.jsexclude);
 
-console.log(cooking.config)
 module.exports = cooking.config;

@@ -34,7 +34,6 @@ route.routes.push({
 });
 
 export const navs = route.navs;
-console.log(route.routes);
 export default new Router({
   routes: route.routes
 });

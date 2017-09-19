@@ -1,0 +1,10 @@
+.items{
+    float: left;
+    width: 15%;
+    overflow: auto;
+}
+.detail {
+    float: right;
+    width: 85%;
+    overflow: auto;
+}
