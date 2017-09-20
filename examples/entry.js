@@ -5,13 +5,14 @@
 import Vue from 'vue';
 import App from './app.vue';
 import router from './router.js';
-import { install as AV } from '../src/index.js';
-import './style.scss';
+// import { install as AV } from '../src/index.js';
+import '../lib/umd/MAV-UI.css';
+import MAVUI from '../lib/umd/MAV-UI.umd.js';
 document.addEventListener('DOMContentLoaded', function () {
   if (window.FastClick) window.FastClick.attach(document.body);
 }, false);
 
-Vue.use(AV);
+Vue.use(MAVUI);
 
 new Vue({ // eslint-disable-line
   el: '#app',

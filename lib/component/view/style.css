@@ -1,0 +1,130 @@
+/* ENV */
+.ma-views {
+  position: relative;
+  flex: 1 1 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+
+.ma-view {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #f4f4f4;
+  backface-visibility: hidden; }
+  .ma-view > .ma-container {
+    flex: 1 1 0; }
+
+@keyframes amt-view-sfl-enter {
+  from {
+    transform: translate3d(-100%, 0, 0); }
+  to {
+    transform: translate3d(0, 0, 0); } }
+
+@keyframes amt-view-sfl-leave {
+  /*from {
+    transform: translate3d(0, 0, 0);
+  }*/
+  to {
+    opacity: .75;
+    transform: translate3d(25%, 0, 0); } }
+
+@keyframes amt-view-sfr-enter {
+  from {
+    transform: translate3d(100%, 0, 0); }
+  to {
+    transform: translate3d(0, 0, 0); } }
+
+@keyframes amt-view-sfr-leave {
+  to {
+    opacity: .75;
+    transform: translate3d(-25%, 0, 0); } }
+
+@keyframes amt-view-rfl-enter {
+  from {
+    opacity: .75;
+    transform: translate3d(75%, 0, 0); }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0); } }
+
+@keyframes amt-view-rfl-leave {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0); }
+  to {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0); } }
+
+@keyframes amt-view-rfr-enter {
+  from {
+    opacity: .75;
+    transform: translate3d(-25%, 0, 0); }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0); } }
+
+@keyframes amt-view-rfr-leave {
+  to {
+    opacity: 0.75;
+    transform: translate3d(100%, 0, 0); } }
+
+.ma-view-transition-sfl-enter-active,
+.ma-view-transition-sfl-leave,
+.ma-view-transition-sfr-enter-active,
+.ma-view-transition-sfr-leave, .ma-view-transition-rfl-enter-active,
+.ma-view-transition-rfl-leave,
+.ma-view-transition-rfr-enter-active,
+.ma-view-transition-rfr-leave {
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.36, 0.66, 0.04, 1);
+  animation-fill-mode: forwards; }
+
+.ma-view-transition-sfr-enter-active,
+.ma-view-transition-sfl-enter-active {
+  pointer-events: none;
+  z-index: 20; }
+
+.ma-view-transition-sfr-leave,
+.ma-view-transition-sfl-leave {
+  pointer-events: none;
+  z-index: 10; }
+
+.ma-view-transition-sfr-enter-active {
+  animation-name: amt-view-sfr-enter; }
+
+.ma-view-transition-sfl-enter-active {
+  animation-name: amt-view-sfl-enter; }
+
+.ma-view-transition-sfr-leave {
+  animation-name: amt-view-sfr-leave; }
+
+.ma-view-transition-sfl-leave {
+  animation-name: amt-view-sfl-leave; }
+
+.ma-view-transition-rfr-enter-active,
+.ma-view-transition-rfl-enter-active {
+  pointer-events: none;
+  z-index: 10; }
+
+.ma-view-transition-rfr-leave,
+.ma-view-transition-rfl-leave {
+  pointer-events: none;
+  z-index: 20; }
+
+.ma-view-transition-rfr-enter-active {
+  animation-name: amt-view-rfr-enter; }
+
+.ma-view-transition-rfr-leave {
+  animation-name: amt-view-rfr-leave; }
+
+.ma-view-transition-rfl-enter-active {
+  animation-name: amt-view-rfl-enter; }
+
+.ma-view-transition-rfl-leave {
+  animation-name: amt-view-rfl-leave; }

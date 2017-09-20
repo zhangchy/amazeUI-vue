@@ -1,0 +1,18 @@
+/* ENV */
+.ma-group {
+  margin: 1.875rem 0; }
+  .ma-group .ma-list {
+    margin: 0; }
+
+.ma-group-body {
+  display: block;
+  padding: 0.9375rem;
+  background: #fff; }
+  .ma-group-no-padded .ma-group-body {
+    padding: 0; }
+
+.ma-group-header,
+.ma-group-footer {
+  padding: 0.3125rem 0.9375rem;
+  color: #6d6d72;
+  font-size: 0.875rem; }

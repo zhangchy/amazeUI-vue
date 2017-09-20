@@ -1,0 +1,52 @@
+/* ENV */
+.ma-btn-group {
+  margin: 0 0 1rem;
+  list-style-type: none;
+  display: inline-flex;
+  overflow: hidden;
+  font-size: 1rem; }
+  .ma-btn-group > .ma-btn {
+    flex: 0 0 auto;
+    position: relative;
+    margin: 0; }
+    .ma-btn-group > .ma-btn:hover, .ma-btn-group > .ma-btn:focus, .ma-btn-group > .ma-btn:active, .ma-btn-group > .ma-btn.ma-active {
+      z-index: 2; }
+
+.ma-btn-group .ma-btn + .ma-btn,
+.ma-btn-group .ma-btn + .ma-btn-group,
+.ma-btn-group .ma-btn-group + .ma-btn,
+.ma-btn-group .ma-btn-group + .ma-btn-group {
+  margin-left: -1px; }
+
+.ma-btn-toolbar {
+  display: flex;
+  margin-left: -0.3125rem; }
+  .ma-btn-toolbar .ma-btn-group {
+    flex: 0 0 auto; }
+  .ma-btn-toolbar > .ma-btn,
+  .ma-btn-toolbar > .ma-btn-group {
+    margin-left: -0.3125rem; }
+
+.ma-btn-group-stacked {
+  display: inline-block; }
+  .ma-btn-group-stacked > .ma-btn,
+  .ma-btn-group-stacked > .ma-btn-group,
+  .ma-btn-group-stacked > .ma-btn-group > .ma-btn {
+    flex: none;
+    display: block;
+    width: 100%;
+    max-width: 100%; }
+  .ma-btn-group-stacked > .ma-btn + .ma-btn,
+  .ma-btn-group-stacked > .ma-btn + .ma-btn-group,
+  .ma-btn-group-stacked > .ma-btn-group + .ma-btnbtn,
+  .ma-btn-group-stacked > .ma-btn-group + .ma-btn-group {
+    margin-top: -1px;
+    margin-left: 0; }
+
+.ma-btn-group-justify {
+  display: flex;
+  width: 100%; }
+  .ma-btn-group-justify > .ma-btn,
+  .ma-btn-group-justify > .ma-btn-group {
+    display: block;
+    flex: 1; }

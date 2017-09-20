@@ -4,7 +4,6 @@
     <div class="ma-group-body">
       <slot></slot>
     </div>
-   <!-- <List.item v-for="(item,index) in items" :item=item></List.item>-->
   </div>
 </template>
 <script>
